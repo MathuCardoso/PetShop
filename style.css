@@ -1,0 +1,57 @@
+body{
+    background-color: orange;
+}
+
+.texto {
+    font-size: 13px;
+}
+
+.divs-facilidades {
+    width: 325px;
+}
+
+.div-novidades {
+    width: 325px;
+}
+
+.bold-message{
+    font-weight: bold;
+}
+
+.botao-lilas {
+    background-color: blue;
+}
+
+.redes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+footer{
+    padding-bottom: 20px;
+}
+
+.rede-icon{
+    font-size: 25px;
+}
+
+.ftp{
+    margin-bottom: 0;
+}
+
+.btn-seta{
+    width: 10%;
+    margin-top: 100px;
+    background-color: black;
+    height: 20%;
+}
+
+@media(min-width: 768px) {
+
+    .div-novidades {
+        width: 696px;
+    }
+
+}
