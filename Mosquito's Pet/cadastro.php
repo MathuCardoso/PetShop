@@ -28,16 +28,16 @@ if (isset($_POST['submetido'])) {
     } else if (!$user) {
         $msgErro = '<p id="msgErro">Insira um nome de usuário</p>';
         $titulo = $msgErro;
-    }elseif (count($sameUserName) > 0) {
+    } elseif (count($sameUserName) > 0) {
         $msgErro = '<p id="msgErro">Nome de usuário já em uso!</p>';
         $titulo = $msgErro;
-    }else if (!$email) {
+    } else if (!$email) {
         $msgErro = '<p id="msgErro">Insira seu e-mail.</p>';
         $titulo = $msgErro;
     } elseif (count($sameEmail) > 0) {
         $msgErro = '<p id="msgErro">E-mail já cadastrado!</p>';
         $titulo = $msgErro;
-    }else if (!$senha) {
+    } else if (!$senha) {
         $msgErro = '<p id="msgErro">Crie uma senha.</p>';
         $titulo = $msgErro;
     }
@@ -68,29 +68,30 @@ if (isset($_POST['submetido'])) {
     <div class="container">
         <form action="" method="POST" onsubmit="return msgSucesso();">
             <div class="header">
-            <h1 id="titulo"><?php echo $titulo;?></h1>
+                <h1 id="titulo"><?php echo $titulo; ?></h1>
             </div>
             <div class="inputField">
                 <label for="user">Nome de Usuário</label>
                 <input type="text" name="user" placeholder="Informe o nome de usuário" id="user" value="<?php
-                                                                                                    echo $user; ?>">
+                                                                                                        echo $user; ?>">
             </div>
 
             <div class="inputField">
                 <label for="email">E-mail</label>
                 <input type="email" name="email" placeholder="Informe o e-mail" id="email" value="<?php
-                                                                                                echo $email; ?>">
+                                                                                                    echo $email; ?>">
             </div>
 
             <div class="inputField">
                 <label for="senha">Senha</label>
                 <input type="password" name="senha" placeholder="Crie uma senha" id="senha" value="<?php
-                                                                                                echo $senha; ?>">
+                                                                                                    echo $senha; ?>">
             </div>
 
             <div class="btn">
                 <button type="submit">Cadastrar</button>
-                <input type="hidden" name="submetido">
+                <a href="login.php" class="loginBtn">Fazer login</a>
+                <input type="hidden" name="submetido" value="1">
             </div>
         </form>
     </div>

@@ -1,8 +1,8 @@
 <?php
-$produto_nome = $_POST['produto_nome'];
-$produto_descricao = $_POST['produto_descricao'];
-$produto_preco = $_POST['produto_preco'];
-$produtoImagem = $_POST['produto_imagem'];
+$produto_nome = $_GET['produto_nome'];
+$produto_descricao = $_GET['produto_descricao'];
+$produto_preco = $_GET['produto_preco'];
+$produtoImagem = $_GET['produto_imagem'];
 ?>
 
 <!DOCTYPE html>
@@ -29,10 +29,7 @@ $produtoImagem = $_POST['produto_imagem'];
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Lojas</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Novidades</a>
@@ -80,7 +77,7 @@ $produtoImagem = $_POST['produto_imagem'];
                 </div>
 
                 <div class="buyProd">
-                    <button type="submit">COMPRAR</button>
+                    <button type="submit" id="comprar">COMPRAR</button>
                 </div>
 
             </div>
@@ -88,27 +85,52 @@ $produtoImagem = $_POST['produto_imagem'];
         </div>
 
 
-        <div class="formProd">
+        <div class="sucesso" id="divSucesso" style="display: none;">
+            <h2 style="display: none;" id="sucesso">Compra realizada com sucesso!</h2>
+        </div>
 
-            <form>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">E-mail</label>
-                    <input type="email" placeholder="Insira seu e-mail" class="form-control" id="exampleInputEmail1">
+        <div class="formProd" id="formProd">
+
+            <form class="formCompra">
+                <h4 style="text-align: center;" class="mb-3">Preencha as informações abaixo</h4>
+                <div class="form">
+                    <div class="left">
+                        <div class="mb-3">
+                            <label for="exampleInputEmail" class="form-label">E-mail</label>
+                            <input type="email" placeholder="Insira seu e-mail" class="form-control" id="exampleInputEmail">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPhone" class="form-label">Telefone</label>
+                            <input type="number" placeholder="(xx) xxxxx-xxxx" class="form-control" id="exampleInputPhone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputCardNumber" class="form-label">Número do cartão</label>
+                            <input type="number" class="form-control" id="exampleInputCardNumber">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputName" class="form-label">Nome do títular</label>
+                            <input type="text" class="form-control" id="exampleInputName">
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="mb-3">
+                            <label for="exampleInputCardDate" class="form-label">Data de validade</label>
+                            <input type="date" class="form-control" id="exampleInputCardDate">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputCode" class="form-label">Código de segurança</label>
+                            <input type="number" class="form-control" id="exampleInputCode" maxlength="3">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputCPF" class="form-label">CPF</label>
+                            <input type="number" class="form-control" id="exampleInputCPF">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputAd" class="form-label">Endereço</label>
+                            <input type="text" class="form-control" id="exampleInputAd">
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputPhone" class="form-label">Telefone</label>
-                    <input type="number" placeholder="(xx) xxxxx-xxxx" class="form-control" id="exampleInputPhone">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPhone" class="form-label">Número do cartão</label>
-                    <input type="number" class="form-control" id="exampleInputPhone">
-                </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Lembrar de mim</label>
-                </div>
-                
-                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
             </form>
 
@@ -116,7 +138,25 @@ $produtoImagem = $_POST['produto_imagem'];
 
     </div>
 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById('comprar').addEventListener('click', function() {
+            var email = document.getElementById('exampleInputEmail');
+            var phone = document.getElementById('exampleInputPhone');
+            var cardNumber = document.getElementById('exampleInputCardNumber');
+            var cardName = document.getElementById('exampleInputName');
+
+            if (email.value !== '' && phone.value !== '' && cardNumber.value !== '' && cardName.value !== '') {
+                document.getElementById('formProd').style.display = 'none';
+                document.getElementById('divSucesso').style.display = 'block'
+                document.getElementById('sucesso').style.display = 'block';
+            } else {
+                alert('Preencha os campos do formulário não preenchidos antes de comprar.');
+            }
+        });
+    </script>
+
 </body>
 
 </html>

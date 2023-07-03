@@ -106,3 +106,13 @@ form{
     font-size: 30px;
     border-radius: 10px;
 }
+
+.cadastrarBtn{
+    margin-top: 30px;
+    color: wheat;
+}
+
+.loginBtn{
+    margin-top: 30px;
+    color: wheat;
+}
